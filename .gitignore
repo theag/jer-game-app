@@ -1,0 +1,10 @@
+# exclude the build folder
+/build
+
+# exclude everthing in nbproject but project.properties and project.xml
+/nbproject/*
+!/nbproject/project.xml
+!/nbproject/project.properties
+
+# exclude the dist folder
+/dist/
