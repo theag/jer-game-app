@@ -12,15 +12,25 @@ import java.util.Scanner;
  * @author nbp184
  */
 public class JerGameApp {
-    
-    static final int NUMBER_OF_ROUNDS = 2;
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
-        int teams = 0, ai = -1;
+        int teams = 0, ai = -1, members = 0;
+        while(members == 0) {
+            System.out.print("Enter number of plaers per team\n>");
+            try {
+                members = Integer.parseInt(s.nextLine());
+                if(members < 1) {
+                    System.out.println("Must have at least 1 member.");
+                    members = 0;
+                }
+            } catch(NumberFormatException ex) {
+                System.out.println("Must enter an integer.");
+            }
+        }
         while(teams == 0) {
             System.out.print("Enter number of teams\n>");
             try {
@@ -47,8 +57,8 @@ public class JerGameApp {
                 System.out.println("Must enter an integer.");
             }
         }
-        Game g = new Game(teams, ai);
-        while(g.roundNumber <= NUMBER_OF_ROUNDS && g.teams.size() > 1) {
+        Game g = new Game(teams, ai, members);
+        while(g.teams.size() > 2) {
             System.out.println();
             for(int i = 0; i < g.teams.size(); i++) {
                 Team t = g.teams.get(i);

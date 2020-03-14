@@ -18,13 +18,13 @@ public class Game {
     final HashMap<Team,BaseFight> fights;
     int roundNumber;
     
-    Game(int teamCount, int aiCount) {
+    Game(int teamCount, int aiCount, int members) {
         teams = new ArrayList<>();
         for(int i = 0; i < teamCount; i++) {
             if(i < teamCount - aiCount) {
-                teams.add(new Team(teamCount, i+1));
+                teams.add(new Team(members, i+1));
             } else {
-                teams.add(new AITeam(teamCount, i+1));
+                teams.add(new AITeam(members, i+1));
             }
         }
         fights = new HashMap<>();

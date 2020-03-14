@@ -20,11 +20,11 @@ public class Team implements Comparable<Team> {
     int points;
     int artifactCount;
     
-    Team(int teamCount, int number) {
-        members = teamCount;
+    Team(int members, int number) {
+        this.members = members;
         points = STARTING_POINTS;
         artifactCount = 1;
-        name = "Team " +number;
+        name = "" +number;
     }
     
     Team(String name) {
